@@ -1,0 +1,30 @@
+struct stu
+{
+	char num[6];
+	char name[10];
+	int score[3];
+}s[5];//注意此处有分号 
+int main(int argc, char *argv[])
+{
+	int i,j;
+	void print(struct stu s[]);
+	for(i=0;i<5;i++)
+	{
+		scanf("%s%s",s[i].num,s[i].name);
+		for(j=0;j<3;j++)
+			scanf("%d",&s[i].score[j]);
+	}
+	print(s);
+	return 0;
+}
+void print(struct stu s[])
+{
+	int i,j;
+		for(i=0;i<5;i++)
+	{
+		printf("学号：%s  姓名：%s\n成绩：",s[i].num,s[i].name);
+		for(j=0;j<3;j++)
+			printf("%d  ",s[i].score[j]);
+		printf("\n"); 
+	}
+}
