@@ -1,0 +1,17 @@
+int main(int argc, char *argv[]) {
+	int i,j=0,k,m;
+	char c;	
+	while((c=getchar())!='\n')
+	{
+		if(c>='a'&&c<='z'||c>='A'&&c<='Z')
+		i++;
+		else if(c>='0'&&c<='9')
+		j++;
+		else if(c==' ')
+		k++;
+		else
+		m++;
+	}
+	printf("字母个数：%d\n数字个数：%d\n空格个数：%d\n其他字符个数：%d\n",i,j,k,m);
+return 0;
+}
