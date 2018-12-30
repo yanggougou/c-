@@ -1,0 +1,83 @@
+struct stu
+{
+	int number;
+	struct stu *next;
+};//注意此处有分号 
+struct stu* del(struct stu*head,long num)
+{
+	int i;
+	struct stu *p1,*p2;
+	p1=head;p2=head->next;//*
+	while(p1->next!=NULL&&p2->number!=num)//*
+	{
+		p1=p2;
+		p2=p2->next;
+	}
+	if(p1->next==NULL)
+	printf(" I can not find it!\n");
+	else
+	{
+		p1->next=p2->next;
+		printf(" I have delate this point!\n");
+	}
+	return head;
+}
+struct stu*insect(struct stu*head,struct stu*stud)
+{
+	struct stu *p0,*p1,*p2;
+	p1=head;
+	p2=head->next;
+	while(p2!=NULL&&stud->number>p2->number)
+	{
+		p1=p2;
+		p2=p2->next;
+	}
+	if(p2!=NULL)
+	stud->next=p2;
+	p1->next=stud;
+	return head;
+}
+int main(int argc, char *argv[])
+{
+	long int i,num[7]={815000,815001,815010,815100,815101,815110,815111};
+	struct stu *head,*t,*p,*p1,*p2;
+	head=(struct stu * )malloc(sizeof(struct stu));
+	t=head;
+	for(i=0;i<7;i++)
+	{
+		p=(struct stu * )malloc(sizeof(struct stu));
+		t->next=p;
+		p->number=num[i];
+		t=p;
+	}
+	t->next=NULL;
+	p1=head->next;
+	for(i=0;i<7;i++)
+	{
+		printf("%d    ",p1->number);
+		p1=p1->next;
+	}
+	printf("\n");
+	long int find;
+	//p1=head;
+	scanf("%d",&find);
+	head=del(head,find);
+	p1=head->next;
+	while(p1!=NULL) 
+	{
+		printf("%d    ",p1->number);
+		p1=p1->next;
+	}
+	printf("\n");
+	p2=(struct stu*)malloc(sizeof(struct stu));
+	scanf("%ld",&p2->number);
+	p2->next=NULL;
+	head=insect(head,p2);
+	p1=head->next;
+	while(p1!=NULL)
+	{
+		printf("%d    ",p1->number);
+		p1=p1->next;
+	}
+	return 0;
+}
