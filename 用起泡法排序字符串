@@ -1,0 +1,36 @@
+#include<string.h>
+/* run this program using the console pauser or add your own getch, system("pause") or input loop */
+#define N 10
+char str[N];
+int main(int argc, char *argv[]) {
+int flag;
+void sort();
+for(flag=1;flag==1;)
+{
+	scanf("%s",str);
+	if(strlen(str)>10)
+	printf("太长，重新输入！\n");
+	else
+	flag=0;
+}
+sort();
+printf("%s",str);
+return 0;
+}
+void sort()//student
+{
+	int i,j;
+	char temp;
+	int sl=strlen(str);
+	for(i=1;i<sl;i++)//i<7
+	for(j=0;j<(sl-i);j++)//j<6 
+	{
+		if(str[j]>str[j+1])
+		{
+		temp=str[j];
+		str[j]=str[j+1];
+		str[j+1]=temp;
+		}
+		
+	}
+}
