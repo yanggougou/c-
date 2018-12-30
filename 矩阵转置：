@@ -1,0 +1,17 @@
+define N=3;
+void convert(int a[][3]);
+int a[N][N];
+输入矩阵；
+convey(a);
+输出矩阵;
+void convert(int a[][3])
+{
+	int i,j,temp;
+	for(i=0;i<n;i++)
+	for(j=i+1;j<n;j++)
+	{
+temp= a[i][j];
+	a[i][j]=a[j][i];
+	a[j][i]=temp;
+	}
+}
