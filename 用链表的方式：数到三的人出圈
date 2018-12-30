@@ -1,0 +1,41 @@
+struct chi
+{
+	int number;
+	int nexp;
+}link[N+1];//注意此处有分号 
+int main(int argc, char *argv[])
+{
+	int i,count,h;
+	for(i=1;i<=N;i++)//循环链表 
+	{
+		if(i==N)
+		link[i].nexp=1;
+		else
+		link[i].nexp=i+1; 
+
+		link[i].number=i;
+	}
+	count=N;
+	h=1;
+	i=0;
+	while(count>=2)
+	{
+		if(link[h].number)
+			i++;
+		if(i==3)
+		{
+			i=0;
+			printf("%d    ",link[h].number);
+			link[h].number=0;
+			count--;
+		}
+		h=link[h].nexp;
+	 } 
+	 for(i=1;i<=N;i++)
+	 if(link[i].number)
+	 {
+	 	printf("\nthe last one is:  %d",link[i].number);
+	 	break;
+	 }
+	return 0;
+}
