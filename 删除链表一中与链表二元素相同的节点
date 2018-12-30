@@ -1,0 +1,67 @@
+#define LA 4
+#define LB 5
+struct stu
+{
+	int number;
+	struct stu *next;
+};
+struct stu* del(struct stu*heada,struct stu*headb)
+{
+	struct stu *p,*p1,*p2;//所要删除的节点的前一个，当前所要删除的结点，链表二当前搜索的结点 
+	p1=heada;
+	while(p1!=NULL)
+	{
+		p2=headb;
+		while(p1->number!=p2->number&&p2->next!=NULL)
+		p2=p2->next;
+		if(p1->number==p2->number)
+		{
+			if(p1==heada)
+			{
+				heada=p1->next;
+				p1=heada;
+			}
+			else
+			{
+		        p->next=p1->next;
+		        p1=p1->next;
+			}
+		 } 
+		 else//直到所要删除的节点不是头节点才用P指向当前节点，并移动p1指向下一个节点 
+		 {
+		    p=p1;
+		    p1=p1->next;
+		 }	
+	}
+	return heada;
+}
+int main(int argc, char *argv[])
+{
+	struct stu a[LA]={{101},{102},{105},{106}};
+	struct stu b[LB]={{103},{104},{105},{107},{109}};
+	struct stu *heada,*headb,*p1,*p2;
+	heada=p1=a;
+	headb=p2=b;
+	int i;
+	for(i=1;i<LA;i++)
+	{
+		p1->next=(a+i);
+		p1=p1->next;
+	}
+	p1->next=NULL;
+	for(i=1;i<LB;i++)
+	{
+		p2->next=(b+i);
+		p2=p2->next;
+	}
+	p2->next=NULL;
+	p1=del(heada,headb);
+	while(p1!=NULL)
+	{
+		printf("%8d",p1->number);
+		p1=p1->next;
+	}
+	printf("\n");
+	return 0;
+}
+
