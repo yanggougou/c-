@@ -1,0 +1,35 @@
+int main(int argc, char *argv[])
+ {
+ 	void change(int *,int,int);
+	int a[20],m,n;
+	printf("输入多少个数？\n");
+	scanf("%d",&n);
+	printf("移动多少位？\n");
+	scanf("%d",&m);
+	printf("输入这一串数：\n");
+	int i;
+	for(i=0;i<n;i++)
+	{
+		scanf("%d",&a[i]);
+	}
+	change(a,m,n);
+	for(i=0;i<n;i++)
+	{
+		printf("%d  ",a[i]);
+	}
+return 0;
+}
+void change(int *s,int m,int n)
+{
+	int *last=s+n-1;
+	int i,j,temp;
+	for(i=1;i<=m;i++)
+	{
+		temp=*last;
+		for(j=n-1;j>0;j--)
+		{
+			*(s+j)=*(s+j-1);
+		}
+		*s=temp;
+	}
+}
