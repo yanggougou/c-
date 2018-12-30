@@ -1,0 +1,3 @@
+for(i=0;i<3;i++)
+for(j=I;j<3;j++)
+{t=*(pointer+3*i+j); *(pointer+3*i+j)= *(pointer+3*j+i); *(pointer+3*j+i)=t;}
