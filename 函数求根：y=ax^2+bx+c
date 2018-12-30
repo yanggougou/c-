@@ -1,0 +1,5 @@
+Disc=b^2-4ac
+If(disc>0) q1=(-b+sqrt(disc))/2a;  q2=(-b-sqrt(disc))/2a;  //两个实根
+If(disc==0) q1=q2=-b/2a;  //两个根相等
+If(disc<0) 
+q1=-b/2a+sqrt(-disc)/2a*i;   q2=-b/2a-sqrt(-disc)/2a*i;  //两个虚根
