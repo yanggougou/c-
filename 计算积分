@@ -1,0 +1,45 @@
+int main(int argc, char *argv[])
+ {
+float jifen(float(*)(float),float,float,int);
+float fsin(float);
+float fcos(float);
+float fexp(float);
+int n;
+float a1,b1,a2,b2,a3,b3,x,y,z;
+scanf("%d",&n);
+scanf("%f%f",&a1,&b1);
+scanf("%f%f",&a2,&b2);
+scanf("%f%f",&a3,&b3);
+x=jifen(fsin,a1,b1,n);
+y=jifen(fcos,a2,b2,n);
+z=jifen(fexp,a3,b3,n);
+printf("sin积分结果：%f\n",x);
+printf("cos积分结果：%f\n",y);
+printf("exp积分结果：%f\n",z);
+return 0;
+}
+float jifen(float(*c)(float x),float a,float b,int n)//注意此处函数中函数指针作为参数的引用方法，此处定义的x对下面的函数不起作用 ，可省 
+{
+	float h,s,x;
+	int i;
+	h=(b-a)/n;
+	s=0;//一定要赋初值！！！
+	for(i=1;i<=n;i++)
+	{
+		x=a+h*i;
+		s+=(*c)(x)*h;
+	}
+	return s;
+}
+float fsin(float x)
+{
+	return(sin(x));
+}
+float fcos(float x)
+{
+	return(cos(x));
+}
+float fexp(float x)
+{
+	return(exp(x));
+}
