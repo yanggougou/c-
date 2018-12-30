@@ -1,0 +1,14 @@
+int main(int argc, char *argv[]) {
+	int i,n,temp,s=0;
+	scanf("%d%d",&i,&n);//2 5
+	temp=i;//2
+	while(n>0)
+	{
+		s+=temp;//2 
+		i=i*10;//20
+		temp=temp+i;//22
+		n--;//4
+	}
+	printf("Sn=%d\n",s);
+return 0;
+}
